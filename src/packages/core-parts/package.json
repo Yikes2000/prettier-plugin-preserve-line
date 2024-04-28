@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "core-parts",
+  "version": "0.0.0",
+  "author": "Andy Lee <yikes2000@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "3.22.4"
+  }
+}

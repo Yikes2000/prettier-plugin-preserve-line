@@ -1,0 +1,1 @@
+../../../v3-test/typescript/preserve-eol-marker/ternary.test.ts

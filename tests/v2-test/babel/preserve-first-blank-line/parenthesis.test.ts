@@ -1,0 +1,1 @@
+../../../v3-test/babel/preserve-first-blank-line/parenthesis.test.ts

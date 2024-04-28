@@ -1,0 +1,1 @@
+../../babel/preserve-first-blank-line/curly.test.ts

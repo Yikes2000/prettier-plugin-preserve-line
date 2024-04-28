@@ -1,0 +1,1 @@
+../../../v3-test/babel/preserve-first-blank-line/bracket.test.ts

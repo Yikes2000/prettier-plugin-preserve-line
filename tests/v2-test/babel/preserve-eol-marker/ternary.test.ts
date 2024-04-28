@@ -1,0 +1,1 @@
+../../../v3-test/babel/preserve-eol-marker/ternary.test.ts

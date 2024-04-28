@@ -1,0 +1,71 @@
+{
+  "name": "@yikes2000/prettier-plugin-preserve-line",
+  "version": "0.0.2-alpha.4",
+  "description": "A Prettier plugin for preserving lines.",
+  "keywords": [
+    "prettier",
+    "plugin",
+    "blank",
+    "line",
+    "eol",
+    "comment",
+    "curly",
+    "bracket",
+    "parentheses"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yikes2000/prettier-plugin-preserve-line.git"
+  },
+  "license": "MIT",
+  "author": "Andy Lee <yikes2000@yahoo.com>",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean:bundle && esbuild src/index.ts --bundle --outdir=dist --platform=node \"--external:@prettier\" \"--external:prettier\" --minify",
+    "build:plain": "pnpm run clean:bundle && esbuild src/index.ts --bundle --outdir=dist --platform=node \"--external:@prettier\" \"--external:prettier\"",
+    "clean": "pnpm run clean:bundle && pnpm -r exec rimraf node_modules/ && rimraf package.merged.json",
+    "clean:bundle": "rimraf dist/",
+    "lint": "eslint src/ tests/",
+    "merge-deps": "rimraf package.merged.json && merge-packages ./ src/packages/core-parts/ src/packages/v2-plugin/ src/packages/v3-plugin/",
+    "prepare-release": "pnpm run build:plain && npm version prerelease --preid=alpha --git-tag-version=false && pnpm run merge-deps && npm pack"
+  },
+  "devDependencies": {
+    "@types/node": "20.2.5",
+    "@types/prettier": "2.7.3",
+    "@typescript-eslint/eslint-plugin": "5.54.0",
+    "@typescript-eslint/parser": "5.54.0",
+    "esbuild": "0.19.11",
+    "eslint": "8.35.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-import-resolver-node": "0.3.7",
+    "eslint-import-resolver-typescript": "3.5.3",
+    "eslint-plugin-import": "2.27.5",
+    "merge-packages": "0.1.6",
+    "prettier": "2.8.4",
+    "prettier-plugin-astro": "0.10.0",
+    "rimraf": "5.0.1",
+    "typescript": "4.9.5",
+    "zod": "3.22.4"
+  },
+  "peerDependencies": {
+    "prettier": "^2 || ^3",
+    "prettier-plugin-astro": "*"
+  },
+  "peerDependenciesMeta": {
+    "prettier-plugin-astro": {
+      "optional": true
+    }
+  },
+  "packageManager": "pnpm@8.5.1",
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "4.3.0"
+  }
+}

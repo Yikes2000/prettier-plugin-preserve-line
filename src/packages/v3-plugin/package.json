@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "v3-plugin",
+  "version": "0.0.0",
+  "author": "Andy Lee <yikes2000@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "core-parts": "workspace:*",
+    "prettier": "3.0.3"
+  }
+}

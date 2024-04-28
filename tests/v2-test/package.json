@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "v2-test",
+  "version": "1.0.0",
+  "author": "Andy Lee <yikes2000@yahoo.com",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run --passWithNoTests"
+  },
+  "devDependencies": {
+    "prettier": "2.8.4",
+    "test-settings": "workspace:*",
+    "vite-tsconfig-paths": "4.2.3",
+    "vitest": "1.1.3"
+  }
+}
