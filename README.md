@@ -1,4 +1,4 @@
-# prettier-plugin-brace-style
+# prettier-plugin-preserve-line
 
 A Prettier plugin for preserving lines.
 
@@ -16,6 +16,7 @@ A Prettier plugin for preserving lines.
 ```
 
 
+
 ## Installation
 
 For Prettier v2:
@@ -29,6 +30,7 @@ For Prettier v3:[^1]
 ```sh
 npm install -D prettier @yikes2000/prettier-plugin-preserve-line
 ```
+
 
 
 ## Configuration
@@ -60,6 +62,7 @@ export default {
   preserveDoubleSlashEol: true,
 };
 ```
+
 
 ## Options
 
@@ -102,6 +105,7 @@ Default | CLI&nbsp;Override | API&nbsp;Override
 `true` | `--no-preserve-first-blank-line` | `preserveFirstBlankLine: <bool>`
 
 
+
 ### Preserve Last Blank Line
 
 Preserve the last blank line of a block (curly, bracket, or parenthesis).
@@ -141,6 +145,7 @@ Default | CLI&nbsp;Override | API&nbsp;Override
 `true` | `--no-preserve-last-blank-line` | `preserveLastBlankLine: <bool>`
 
 
+
 ### Preserve by EOL Marker
 
 End-of-line double forward slash "//" marker will apply "// prettier-ignore" to that line.
@@ -164,9 +169,11 @@ Default | CLI&nbsp;Override | API&nbsp;Override
 `true` | `--no-preserve-eol-marker` | `preserveEolMarker: <bool>`
 
 
+
 ## Compatibility with other Prettier plugins
 
 See [prettier-plugin-merge-preserve](https://github.com/yikes2000/prettier-plugin-merge-preserve).
+
 
 
 ## Credits
