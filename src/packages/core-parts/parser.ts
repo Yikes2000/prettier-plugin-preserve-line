@@ -15,6 +15,19 @@ const OPEN_BLANK_LINE = new RegExp(/([\{\[\(]\s*\n)(?:\s*\n)+/g);
 
 const BR_LINE = new RegExp(`^\\s*${BR}$`, 'mg');  // for post-process
 
+
+/**
+ * 'preserve-last-blank-line' replaces the last empty line a close block with a marker comment in pre-process, e.g.
+ *
+ *     if (condition) {
+ *         ...
+ *         //__BR__
+ *     }
+ *
+ * After Prettier formats the code, then the marker is removed in post-process.
+ */
+const CLOSE_BLANK_LINE = new RegExp(/(?<=\n)(?:\s*\n)+(\s*[\}\]\)])/g);
+
 /**
  * End-of-line '//' alias for '// prettier-ignore' on the previous line is added during pre-process, e.g.
  *
@@ -40,6 +53,9 @@ export function preprocess(code: string, options: ParserOptions): string {
   if (options.preserveFirstBlankLine) {
     code = code.replace(OPEN_BLANK_LINE, '$1' + BR + '\n');
   }
+  if (options.preserveLastBlankLine) {
+    code = code.replace(CLOSE_BLANK_LINE, BR + '\n' + '$1');
+  }
   if (options.preserveEolMarker) {
     code = code.replace(DOUBLE_SLASH_EOL, IGNORE + '\n' + '$1');
   }
@@ -51,7 +67,7 @@ export function preprocess(code: string, options: ParserOptions): string {
  */
 export function postprocess(code: string, options: ParserOptions): string {
   //
-  if (options.preserveFirstBlankLine) {
+  if (options.preserveFirstBlankLine || options.preserveLastBlankLine) {
     code = code.replace(BR_LINE, '');
   }
   if (options.preserveEolMarker) {

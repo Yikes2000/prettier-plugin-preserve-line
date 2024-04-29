@@ -9,6 +9,14 @@ export const options: SupportOptions = {
     oppositeDescription:
       "Do not preserve first blank line of a block; Prettier's default behavior.",
   },
+  preserveLastBlankLine: {
+    category: 'Format',
+    type: "boolean",
+    default: true,
+    description: "Preserve last blank line of a block.",
+    oppositeDescription:
+      "Do not preserve last blank line of a block; Prettier's default behavior.",
+  },
   preserveEolMarker: {
     category: 'Format',
     type: "boolean",

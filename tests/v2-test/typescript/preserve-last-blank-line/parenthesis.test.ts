@@ -1,0 +1,1 @@
+../../../v3-test/typescript/preserve-last-blank-line/parenthesis.test.ts

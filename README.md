@@ -101,9 +101,49 @@ Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-first-blank-line` | `preserveFirstBlankLine: <bool>`
 
+
+### Preserve Last Blank Line
+
+Preserve the last blank line of a block (curly, bracket, or parenthesis).
+
+Example:
+```
+  if (condition) {
+    statement1;
+    statement2;
+
+    statement3;
+    statement4;
+    
+  }
+
+  a = [
+    // Odds
+    1, 3, 5, 7, 9,
+
+    // Evens
+    2, 4, 6, 8, 10,
+    
+  ];
+
+  sum = (
+    // Odds
+    1 + 3 + 5 + 7 + 9 +
+
+    // Evens
+    2 + 4 + 6 + 8 + 10
+    
+  );
+```
+<!-- prettier-ignore -->
+Default | CLI&nbsp;Override | API&nbsp;Override
+--- | --- | ---
+`true` | `--no-preserve-last-blank-line` | `preserveLastBlankLine: <bool>`
+
+
 ### Preserve by EOL Marker
 
-End-of-line `//` marker will apply `// prettier-ignore` to that line.
+End-of-line double forward slash "//" marker will apply "// prettier-ignore" to that line.
 
 Example:
 ```
