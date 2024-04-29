@@ -3,13 +3,13 @@
 A Prettier plugin for preserving lines.
 
 ```
-    Preserve first blank line of a block:            Preserve an expression:
+    Preserve first blank line of a block:     An expression:
 
-        if (condition) {                                 matrix = [  //
-                                                             1, 0, 1,
-          statement1;                                        0, 1, 0,
-          statement2;                                        0, 0, 1,
-                                                         ];
+        if (condition) {                          matrix = [  //
+                                                      1, 0, 1,
+          statement1;                                 0, 1, 0,
+          statement2;                                 0, 0, 1,
+                                                  ];
           statement3;
           statement4;
         }
@@ -126,26 +126,9 @@ Default | CLI&nbsp;Override | API&nbsp;Override
 
 ## Compatibility with other Prettier plugins
 
-If more than one Prettier plugin is applicable to a file type, Prettier will only execute the last plugin.
+See [prettier-plugin-merge-preserve](https://github.com/yikes2000/prettier-plugin-merge-preserve).
 
-To apply the plugins sequentially, configure [prettier-plugin-merge](https://github.com/ony3000/prettier-plugin-merge) as
-the last plugin.
 
-JSON example:
-
-<!-- prettier-ignore -->
-```json
-{
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-brace-style",
-    "prettier-plugin-preserve-line",
-    "prettier-plugin-merge"
-  ],
-  "braceStyle": "stroustrup"
-}
-
-```
 ## Credits
 
 This plugin was templated from Hyeonjong's
