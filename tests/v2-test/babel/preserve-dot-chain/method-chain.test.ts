@@ -1,0 +1,1 @@
+../../../v3-test/babel/preserve-dot-chain/method-chain.test.ts

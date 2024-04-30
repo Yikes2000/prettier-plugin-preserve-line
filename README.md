@@ -13,8 +13,19 @@ A Prettier plugin for preserving lines.
           statement3;
           statement4;
         }
-```
 
+    Preserve method chain breaks:
+
+        cy.get("something")
+          .style().isBold()
+          .value().matches('abc')
+          .hasAttribute({
+              name: "explanation",
+              xyz: true
+          })
+          .done();
+```
+&nbsp;
 
 
 ## Installation
@@ -30,7 +41,7 @@ For Prettier v3:[^1]
 ```sh
 npm install -D prettier @yikes2000/prettier-plugin-preserve-line
 ```
-
+&nbsp;
 
 
 ## Configuration
@@ -49,7 +60,7 @@ JS example (CommonJS module):
 module.exports = {
   plugins: ['@yikes2000/prettier-plugin-preserve-line'],
   preserveFirstBlankLine: true,
-  preserveDoubleSlashEol: true,
+  preserveEolMarker: true,
 };
 ```
 
@@ -59,11 +70,11 @@ JS example (ES module):
 export default {
   plugins: ['@yikes2000/prettier-plugin-preserve-line'],
   preserveFirstBlankLine: true,
-  preserveDoubleSlashEol: true,
+  preserveEolMarker: true,
 };
 ```
 
-
+&nbsp;
 ## Options
 
 ### Preserve First Blank Line
@@ -103,7 +114,7 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-first-blank-line` | `preserveFirstBlankLine: <bool>`
-
+&nbsp;
 
 
 ### Preserve Last Blank Line
@@ -116,9 +127,6 @@ Example:
     statement1;
     statement2;
 
-    statement3;
-    statement4;
-    
   }
 
   a = [
@@ -127,7 +135,7 @@ Example:
 
     // Evens
     2, 4, 6, 8, 10,
-    
+
   ];
 
   sum = (
@@ -136,19 +144,19 @@ Example:
 
     // Evens
     2 + 4 + 6 + 8 + 10
-    
+
   );
 ```
 <!-- prettier-ignore -->
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-last-blank-line` | `preserveLastBlankLine: <bool>`
-
+&nbsp;
 
 
 ### Preserve by EOL Marker
 
-End-of-line double forward slash "//" marker will apply "// prettier-ignore" to that line.
+End-of-line "//" marker applies "// prettier-ignore" to that line.
 
 Example:
 ```
@@ -167,7 +175,54 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-eol-marker` | `preserveEolMarker: <bool>`
+&nbsp;
 
+
+### Preserve Method Chain Breaks
+
+Prettier formats method chain in one of two styles:
+```
+  cy.all().in().one().line();
+
+  cy.tooManyForOneLine()
+    .split()
+    .them()
+    .into()
+    .multiple()
+    .lines();
+```
+
+This option preserves existing method chain breaks:
+```
+  cy.get("something")
+    .value().matches('abc').matches('cde')
+    .allowing({
+        name: "explanation",
+        xyz: true
+    }).andMore()
+    .done();
+```
+(Indentation is still handled by Prettier.)
+
+For local exceptions, prepend "// no-preserve" line:
+```
+  // no-preserve
+  cy.get("something").old().style();
+
+  // no-preserve
+  cy.get("something")
+    .tooManyForOneLine()
+    .one()
+    .two()
+    .three();
+```
+Prettier will format the line block after "// no-preserve".
+
+<!-- prettier-ignore -->
+Default | CLI&nbsp;Override | API&nbsp;Override
+--- | --- | ---
+`true` | `--no-preserve-dot-chain` | `preserveDotChain: <bool>`
+&nbsp;
 
 
 ## Compatibility with other Prettier plugins
@@ -175,10 +230,26 @@ Default | CLI&nbsp;Override | API&nbsp;Override
 See [prettier-plugin-merge-preserve](https://github.com/yikes2000/prettier-plugin-merge-preserve).
 
 
+&nbsp;
+
+
+## Limitations
+
+<!-- prettier-ignore -->
+Language | Supported | Notes
+--- | --- | ---
+Javascript | Yes |
+Typescript | Yes |
+
+Seeking contributors to support additional languages.
+
+These preserve-line options are implemented using RegExp, which is the simplest but hacky way to achieve these results
+considering the rigid complexity of Prettier's internal parser and AST format. In a few rare situations these preserve
+options won't work, due to the limit of this RegExp approach.  Please kindly report them regardless.
+
+&nbsp;
 
 ## Credits
 
 This plugin was templated from Hyeonjong's
 [prettier-plugin-brace-style](https://github.com/ony3000/prettier-plugin-brace-style).
-
-

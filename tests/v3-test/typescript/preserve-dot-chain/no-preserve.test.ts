@@ -1,0 +1,1 @@
+../../babel/preserve-dot-chain/no-preserve.test.ts

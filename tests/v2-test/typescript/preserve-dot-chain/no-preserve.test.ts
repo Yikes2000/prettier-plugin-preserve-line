@@ -1,0 +1,1 @@
+../../../v3-test/typescript/preserve-dot-chain/no-preserve.test.ts

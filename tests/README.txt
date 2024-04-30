@@ -17,10 +17,16 @@ Babel (Javascript) preserve-line tests:
             curly.test.ts
             bracket.test.ts
             parenthesis.test.ts
+
+        preserve-last-blank-line/
+            ...
             
         preserve-eol-marker/
             array.test.ts
             ternary.test.ts
+
+        preser-dot-chain/
+            ...
 
 Typescript and v2-test share the same tests (symlink).
 
