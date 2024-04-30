@@ -43,7 +43,6 @@ npm install -D prettier @yikes2000/prettier-plugin-preserve-line
 ```
 .
 
-
 ## Configuration
 
 JSON example:
@@ -152,8 +151,8 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-last-blank-line` | `preserveLastBlankLine: <bool>`
-.
 
+.
 
 ### Preserve by EOL Marker
 
@@ -176,8 +175,8 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-eol-marker` | `preserveEolMarker: <bool>`
-.
 
+.
 
 ### Preserve Method Chain Breaks
 
@@ -223,6 +222,7 @@ Prettier will format the line block after "// no-preserve".
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-dot-chain` | `preserveDotChain: <bool>`
+
 .
 
 
