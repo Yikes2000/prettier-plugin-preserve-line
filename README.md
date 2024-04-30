@@ -25,7 +25,7 @@ A Prettier plugin for preserving lines.
           })
           .done();
 ```
-&nbsp;
+.
 
 
 ## Installation
@@ -41,7 +41,7 @@ For Prettier v3:[^1]
 ```sh
 npm install -D prettier @yikes2000/prettier-plugin-preserve-line
 ```
-&nbsp;
+.
 
 
 ## Configuration
@@ -73,8 +73,9 @@ export default {
   preserveEolMarker: true,
 };
 ```
+.
 
-&nbsp;
+
 ## Options
 
 ### Preserve First Blank Line
@@ -114,7 +115,7 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-first-blank-line` | `preserveFirstBlankLine: <bool>`
-&nbsp;
+.
 
 
 ### Preserve Last Blank Line
@@ -151,7 +152,7 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-last-blank-line` | `preserveLastBlankLine: <bool>`
-&nbsp;
+.
 
 
 ### Preserve by EOL Marker
@@ -175,7 +176,7 @@ Example:
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-eol-marker` | `preserveEolMarker: <bool>`
-&nbsp;
+.
 
 
 ### Preserve Method Chain Breaks
@@ -222,15 +223,13 @@ Prettier will format the line block after "// no-preserve".
 Default | CLI&nbsp;Override | API&nbsp;Override
 --- | --- | ---
 `true` | `--no-preserve-dot-chain` | `preserveDotChain: <bool>`
-&nbsp;
+.
 
 
 ## Compatibility with other Prettier plugins
 
-See [prettier-plugin-merge-preserve](https://github.com/yikes2000/prettier-plugin-merge-preserve).
-
-
-&nbsp;
+See [@yikes2000/prettier-plugin-merge-preserve](https://github.com/yikes2000/prettier-plugin-merge-preserve).
+.
 
 
 ## Limitations

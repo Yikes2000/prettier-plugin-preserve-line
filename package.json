@@ -1,6 +1,6 @@
 {
   "name": "@yikes2000/prettier-plugin-preserve-line",
-  "version": "0.0.2-alpha.7",
+  "version": "0.0.2-alpha.8",
   "description": "A Prettier plugin for preserving lines.",
   "keywords": [
     "prettier",
